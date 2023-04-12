@@ -16,16 +16,11 @@ def permutations(s):
     if len(s) <= 1:
         return [s]
     else:
-        perms = []
+        perms = set()
 
         for i, c in enumerate(s):
-            print(i,c)
             rest = s[:i] + s[i+1:]
-            print(rest, "= s[:i] + s[i+1:] = ", s[:i],"+", s[i+1:])
             for perm in permutations(rest):
-                p = c + perm
-                print(f'p={p}(c + perm({perm}), c={c}')
-                if p not in perms:
-                    perms.append(p)
+                perms.add(c + perm) 
 
-    return perms
+    return list(perms) 
